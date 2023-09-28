@@ -28,8 +28,14 @@ services:
       KC_FEATURES: preview
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/conf/server.crt.pem \
+      KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/conf/server.key.pem \
     ports:
       - 8080:8080
+      - 8443:8443
+    volumes:
+      - "/opt/keycloak/conf/server.crt.pem \"
+      - "/opt/keycloak/conf/server.key.pem \"
 
   # mail:
   #   image: mailhog/mailhog
