@@ -19,6 +19,7 @@ services:
     environment:
       KC_DB_URL: jdbc:postgresql://keycloak-postgres:5432/postgres
       KC_HTTP_ENABLED: true
+      KC_HOSTNAME_STRICT_HTTPS: false
       KC_DB_USERNAME: postgres
       KC_DB_PASSWORD: postgres
       KC_DB_SCHEMA: public
