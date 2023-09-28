@@ -28,8 +28,7 @@ services:
     ports:
       - 8282:8080
     depends_on:
-      keycloak-postgres:
-        condition: service_healthy
+      keycloak-postgres
 
   # mail:
   #   image: mailhog/mailhog
