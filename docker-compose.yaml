@@ -1,3 +1,43 @@
+# version: "3.9"
+# services:
+#   keycloak-postgres:
+#     image: library/postgres:${KC_POSTGRES_IMAGE_TAG:-14}
+#     container_name: ${POSTGRES_CONTAINER_NAME:-postgres}
+#     restart: on-failure
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: postgres
+#       POSTGRES_DB: postgres
+#     ports:
+#       - ${KC_POSTGRES_PORT_MAPPING:-5435}:5432
+
+#   keycloak:
+#     image: quay.io/keycloak/keycloak:20.0.2
+#     container_name: keycloak
+#     command:
+#       - start --auto-build --db postgres --hostname-strict-https false --hostname-strict false --proxy edge --http-enabled true --import-realm --spi-user-profile-legacy-user-profile-read-only-attributes *_RES_ACCESS_MODE
+#     environment:
+#       KC_DB_URL: jdbc:postgresql://keycloak-postgres:5432/postgres
+#       KC_HTTP_ENABLED: true
+#       KC_PROXY: edge
+#       KC_HOSTNAME_STRICT: false
+#       KC_HOSTNAME_STRICT_HTTPS: false
+#       KC_DB_USERNAME: postgres
+#       KC_DB_PASSWORD: postgres
+#       KC_DB_SCHEMA: public
+#       KC_FEATURES: preview
+#       KEYCLOAK_ADMIN: admin
+#       KEYCLOAK_ADMIN_PASSWORD: admin
+#     ports:
+#      - 8080:8080
+
+  # mail:
+  #   image: mailhog/mailhog
+  #   ports:
+  #     - "1025:1025"
+  #     - "8025:8025"
+
+
 version: "3.9"
 services:
   keycloak-postgres:
@@ -19,9 +59,6 @@ services:
     environment:
       KC_DB_URL: jdbc:postgresql://keycloak-postgres:5432/postgres
       KC_HTTP_ENABLED: true
-      KC_PROXY: edge
-      KC_HOSTNAME_STRICT: false
-      KC_HOSTNAME_STRICT_HTTPS: false
       KC_DB_USERNAME: postgres
       KC_DB_PASSWORD: postgres
       KC_DB_SCHEMA: public
@@ -29,10 +66,4 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     ports:
-     - 8080:8080
-
-  # mail:
-  #   image: mailhog/mailhog
-  #   ports:
-  #     - "1025:1025"
-  #     - "8025:8025"
+      - 8282:8080
