@@ -29,7 +29,7 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     ports:
-      - 8282:8080
+      - 8080:8080
 
   # mail:
   #   image: mailhog/mailhog
