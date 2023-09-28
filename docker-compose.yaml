@@ -13,6 +13,7 @@ services:
       DB_DATABASE: keycloak
       DB_USER: keycloak
       DB_PASSWORD: password
+      KEYCLOAK_TLS_REQUIRED: none
     depends_on:
       - postgres
 
