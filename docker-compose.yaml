@@ -27,8 +27,6 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: admin
     ports:
       - 8282:8080
-    depends_on:
-      keycloak-postgres
 
   # mail:
   #   image: mailhog/mailhog
